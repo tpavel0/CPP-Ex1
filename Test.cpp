@@ -25,11 +25,11 @@ TEST_CASE("Test replacement of v and w") { //14
     CHECK(find(text, "Want") == string("want"));
     CHECK(find(text, "win") == string("vin"));
     CHECK(find(text, "Win") == string("vin"));
-    CHECK(find(text, "winners") == string("vinners"));
     CHECK(find(text, "Winners") == string("vinners"));
-    CHECK(find(text, "winner") != string("vinners"));
-    CHECK(find(text, "went") != string("want"));
-    CHECK(find(text, "bin") != string("vin"));
+    CHECK(find(text, "winners") == string("vinners"));
+    CHECK(find(text, "Be") == string("be"));
+    CHECK(find(text, "And") == string("and"));
+    CHECK(find(text, "Vin") != string("vin"));
     CHECK_THROWS_AS(find(text, "won"), std::exception);
     CHECK_THROWS_AS(find(text, "waanted"), std::exception);
     CHECK_THROWS_AS(find(text, "been"), std::exception);
@@ -43,9 +43,9 @@ TEST_CASE("Test replacement of b and f") { // 12
     CHECK(find(text, "Black") == string("flack"));
     CHECK(find(text, "after") == string("abter"));
     CHECK(find(text, "After") == string("abter"));
-    CHECK(find(text, "fla") != string("flack"));
+    CHECK(find(text, "Still") == string("still"));
     CHECK(find(text, "lack") != string("flack"));
-    CHECK(find(text, "aftr") != string("abter"));
+    CHECK(find(text, "Abter") == string("abter"));
     CHECK_THROWS_AS(find(text, "rose"), std::exception);
     CHECK_THROWS_AS(find(text, "strong"), std::exception);
     CHECK_THROWS_AS(find(text, "always"), std::exception);
@@ -56,7 +56,7 @@ TEST_CASE("Test replacement of b and p") { //9
     CHECK(find(text, "punks") == string("bunks"));
     CHECK(find(text, "Punks") == string("bunks"));
     CHECK(find(text, "playing") == string("blaying"));
-    CHECK(find(text, "play") != string("blaying"));
+    CHECK(find(text, "Playing") == string("blaying"));
     CHECK(find(text, "bass") == string("pass"));
     CHECK(find(text, "Bass") == string("pass"));
     CHECK(find(text, "Blaying") == string("blaying"));
@@ -68,13 +68,13 @@ TEST_CASE("Test replacement of f and p") { //11
     string text = "Nik Furry playing ape furious";
     CHECK(find(text, "purry") == string("Furry"));
     CHECK(find(text, "afe") == string("ape"));
-    CHECK(find(text, "furi") != string("furious"));
+    CHECK(find(text, "Purry") == string("Furry"));
     CHECK(find(text, "Flaying") == string("playing"));
 	CHECK(find(text, "Playing") == string("playing"));
-	CHECK(find(text, "flaying") != string("playing"));
-    CHECK(find(text, "fury") != string("Furry"));
-    CHECK(find(text, "yours") != string("furious"));
-	CHECK(find(text, "aff") != string("ape"));
+	CHECK(find(text, "flaying") == string("playing"));
+    CHECK(find(text, "Afe") == string("ape"));
+    CHECK(find(text, "Purious") == string("furious"));
+	CHECK(find(text, "purious") == string("furious"));
 	CHECK_THROWS_AS(find(text, "afk"), std::exception);
 	CHECK_THROWS_AS(find(text, "banana"), std::exception);
 }
@@ -88,7 +88,7 @@ TEST_CASE("Test replacement of g and j") { //12
 	CHECK(find(text, "Great") != string("Great"));
     CHECK(find(text, "gob") != string("job"));
     CHECK(find(text, "Gogjle") == string("Goggle"));
-    CHECK(find(text, "Sin") != string("Jin"));
+    CHECK(find(text, "Gin") == string("Jin"));
 	CHECK_THROWS_AS(find(text, "John"), std::exception);
 	CHECK_THROWS_AS(find(text, "Jinny"), std::exception);
 	CHECK_THROWS_AS(find(text, "Soggle"), std::exception);
@@ -101,9 +101,9 @@ TEST_CASE("Test replacement of c and k") { //8
     CHECK(find(text, "kook") == string("cook"));
     CHECK(find(text, "kooking") == string("cooking"));
     CHECK(find(text, "coocing") == string("cooking"));
-	CHECK(find(text, "captain") != string("cap"));
-    CHECK(find(text, "kap") == string("cap"));
-	CHECK_THROWS_AS(find(text, "love"), std::exception);
+	CHECK(find(text, "kap") == string("cap"));
+    CHECK(find(text, "Kap") == string("cap"));
+	CHECK_THROWS_AS(find(text, "sorry"), std::exception);
 	CHECK_THROWS_AS(find(text, "candle"), std::exception);
 }
 
@@ -114,32 +114,32 @@ TEST_CASE("Test replacement of c and q") { // 8
 	CHECK(find(text, "Qan") == string("can"));
     CHECK(find(text, "Qook") == string("cook"));
     CHECK(find(text, "Cook") == string("cook"));
-    CHECK(find(text, "queque") != string("queue"));
+    CHECK(find(text, "cueue") == string("queue"));
 	CHECK_THROWS_AS(find(text, "Billy"), std::exception);
 	CHECK_THROWS_AS(find(text, "Chohen"), std::exception);
 }
 
 TEST_CASE("Test replacement of k and q") { //8
-    string text = "king or queen knows better ";
+    string text = "king or queen knows koko ";
     CHECK(find(text, "qing") == string("king"));
     CHECK(find(text, "King") == string("king"));
     CHECK(find(text, "Kueen") == string("queen"));
     CHECK(find(text, "qnows") == string("knows"));
-	CHECK(find(text, "Quee") != string("queen"));
-    CHECK(find(text, "Qinn") != string("king"));
-    CHECK(find(text, "Kong") != string("king"));
-    CHECK(find(text, "seen") != string("queen"));
+	CHECK(find(text, "Qing") == string("king"));
+    CHECK(find(text, "kueen") == string("queen"));
+    CHECK(find(text, "qoqo") == string("koko"));
+    CHECK(find(text, "Qoko") != string("koko"));
 }
 
 TEST_CASE("Test replacement of s and z") {//7
-    string text = "Pizza Soom papperoni and zucini";
+    string text = "Pizza Soom papperoni and zucini salad";
     CHECK(find(text, "PIzsa") == string("Pizza"));
     CHECK(find(text, "pissa") == string("Pizza"));
     CHECK(find(text, "Zoom") == string("Soom"));
     CHECK(find(text, "zoom") == string("Soom"));
     CHECK(find(text, "sucini") == string("zucini"));
-    CHECK(find(text, "paper") != string("papperoni"));
-    CHECK(find(text, "dna") == string("and"));
+    CHECK(find(text, "zalad") == string("salad"));
+    CHECK(find(text, "Zalad") == string("salad"));
 }
 
 TEST_CASE("Test replacement of d and t") { // 7
@@ -150,7 +150,7 @@ TEST_CASE("Test replacement of d and t") { // 7
     CHECK(find(text, "Dralala") == string("tralala"));
 	CHECK(find(text, "tont") == string("dont"));
     CHECK(find(text, "Douch") != string("Touch"));
-    CHECK(find(text, "trololol") != string("tralala"));
+    //CHECK(find(text, "trololol") != string("tralala"));
 }
 
 TEST_CASE("Test replacement of o and u") { //8
@@ -159,10 +159,10 @@ TEST_CASE("Test replacement of o and u") { //8
     CHECK(find(text, "Cuunt") == string("count"));
     CHECK(find(text, "coont") == string("count"));
     CHECK(find(text, "Boonty") == string("bounty"));
-	CHECK(find(text, "buunty") != string("dounty"));
+	CHECK(find(text, "BuOnty") == string("bounty"));
 	CHECK(find(text, "some") == string("some"));
-	CHECK(find(text, "Sume") == string("some"));
-	CHECK(find(text, "oome") != string("Some"));
+	CHECK(find(text, "SuMe") == string("some"));
+	CHECK(find(text, "Sume") == string("Some"));
 }
 
 TEST_CASE("Test replacement of i and y") { //8
@@ -173,6 +173,6 @@ TEST_CASE("Test replacement of i and y") { //8
     CHECK(find(text, "lyke") == string("like"));
 	CHECK(find(text, "Like") == string("like"));
 	CHECK(find(text, "You") == string("you"));
-	CHECK(find(text, "yoy") != string("you"));
-	CHECK(find(text, "ioi") == string("you"));
+	CHECK(find(text, "Iou") == string("you"));
+	CHECK(find(text, "lYke") == string("like"));
 }
