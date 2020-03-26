@@ -162,7 +162,7 @@ TEST_CASE("Test replacement of o and u") { //8
 	CHECK(find(text, "BuOnty") == string("bounty"));
 	CHECK(find(text, "some") == string("some"));
 	CHECK(find(text, "SuMe") == string("some"));
-	CHECK(find(text, "Sume") == string("Some"));
+	CHECK(find(text, "COOnt") == string("count"));
 }
 
 TEST_CASE("Test replacement of i and y") { //8
