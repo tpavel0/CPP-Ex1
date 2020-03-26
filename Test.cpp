@@ -7,7 +7,6 @@ using namespace std;
 
 TEST_CASE("test") {
 	string text = "One day you will see this dayer";
-	Une tai yuo wyll zee dhis tay
 	CHECK(find(text, "Une") == string("One"));
 	CHECK(find(text, "tai") == string("day"));
 	CHECK(find(text, "yuo") == string("you"));
