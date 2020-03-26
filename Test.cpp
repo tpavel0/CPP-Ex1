@@ -128,7 +128,7 @@ TEST_CASE("Test replacement of k and q") { //8
 	CHECK(find(text, "Qing") == string("king"));
     CHECK(find(text, "kueen") == string("queen"));
     CHECK(find(text, "qoqo") == string("koko"));
-    CHECK(find(text, "Qoko") != string("koko"));
+    CHECK(find(text, "Qoko") == string("koko"));
 }
 
 TEST_CASE("Test replacement of s and z") {//7
