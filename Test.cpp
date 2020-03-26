@@ -28,8 +28,8 @@ TEST_CASE("Test replacement of v and w") { //14
     CHECK(find(text, "Winners") == string("vinners"));
     CHECK(find(text, "winners") == string("vinners"));
     CHECK(find(text, "Be") == string("be"));
-    CHECK(find(text, "And") == string("and"));
-    CHECK(find(text, "Vin") != string("vin"));
+    CHECK(find(text, "Ve") == string("we"));
+    CHECK(find(text, "Vin") == string("vin"));
     CHECK_THROWS_AS(find(text, "won"), std::exception);
     CHECK_THROWS_AS(find(text, "waanted"), std::exception);
     CHECK_THROWS_AS(find(text, "been"), std::exception);
