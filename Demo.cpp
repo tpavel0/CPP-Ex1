@@ -5,10 +5,10 @@
  */
 
 #include "PhoneticFinder.hpp"
-
 #include <iostream>
 #include <stdexcept>
 using namespace std;
+using namespace phonetic;
 
 int main() {
 	string text = "Dond vorri be haffy";
