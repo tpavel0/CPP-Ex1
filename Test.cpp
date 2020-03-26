@@ -59,7 +59,7 @@ TEST_CASE("Test replacement of b and p") { //9
     CHECK(find(text, "play") != string("blaying"));
     CHECK(find(text, "bass") == string("pass"));
     CHECK(find(text, "Bass") == string("pass"));
-    CHECK(find(text, "player")) != string("playing");
+    CHECK(find(text, "player")) != string("playing"));
     CHECK_THROWS_AS(find(text, "Blay"), std::exception);
     CHECK_THROWS_AS(find(text, "Sunks"), std::exception);
 }
